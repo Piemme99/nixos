@@ -2,18 +2,13 @@
 
 {
   home.packages = with pkgs; [
-    wofi
-    grim
-    slurp
-    wl-clipboard
-    brightnessctl
-    pamixer
-    #thunar
+    wofi # Application launcher
+    swww # Background manager
+    nerd-fonts.jetbrains-mono # JetBrains Mono font
   ];
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = pkgs.hyprland;
     systemd = {
       enable = true;
       enableXdgAutostart = true;
@@ -26,10 +21,14 @@
       input = {
         kb_layout = "fr";
         kb_options = [
-          "grp:alt_caps_toggle"
           "caps:super"
         ];
       };
+      exec-once = [
+        "waybar &"
+        "swww init &"
+        "kitty &"
+      ];
     };
   };
 }
