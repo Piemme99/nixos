@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   imports = [
@@ -7,7 +7,15 @@
     ./modules/packages.nix
   ];
 
-  services.openssh.enable = true;
+  # SSH
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false; # Connect only with SSH keys
+    };
+  };
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -31,6 +39,19 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # Passwordless sudo for the user.
+  security.sudo.extraRules = [
+    {
+      users = [ "piemme" ];
+      commands = [
+        {
+          command = "ALL";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
+  ];
+
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -46,9 +67,6 @@
     extraGroups = [
       "networkmanager"
       "wheel"
-    ];
-    packages = with pkgs; [
-      #  thunderbird
     ];
   };
 

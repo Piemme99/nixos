@@ -4,5 +4,6 @@
     ./hyprland/default.nix
     ./git.nix
     ./waybar.nix
+    ./btop.nix
   ];
 }

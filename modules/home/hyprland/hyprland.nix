@@ -4,7 +4,8 @@
   home.packages = with pkgs; [
     wofi # Application launcher
     swww # Background manager
-    nerd-fonts.jetbrains-mono # JetBrains Mono font
+    hyprpaper # Wallpaper manager
+    brightnessctl # Brightness control
   ];
 
   wayland.windowManager.hyprland = {
