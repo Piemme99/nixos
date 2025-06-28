@@ -10,7 +10,7 @@
       log.decorate = "full"; # Show branch/tag info in git log
       log.date = "iso"; # ISO 8601 date format (YYYY-MM-DD HH:MM:SS +TZ)
       merge.conflictStyle = "diff3"; # Better conflict resolution style
-      core.editor = "vscode"; # Use vsCode as the default editor for Git
+      core.editor = "nvim"; # Use nvim as the default editor for Git
     };
     aliases = {
       br = "branch --sort=-committerdate";

@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -7,9 +7,9 @@
   ];
 
   services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.displayManager.sddm.wayland.enable = true;
-  services.xserver.displayManager.sddm.theme = "where_is_my_sddm_theme";
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+  services.displayManager.sddm.theme = "where_is_my_sddm_theme";
 
   # SSH
   services.openssh = {
@@ -65,6 +65,8 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+  programs.zsh.enable = true;
+
   users.users.piemme = {
     isNormalUser = true;
     description = "Piemme";
@@ -72,6 +74,8 @@
       "networkmanager"
       "wheel"
     ];
+    shell = pkgs.zsh;
+    ignoreShellProgramCheck = true;
   };
 
   home-manager = {

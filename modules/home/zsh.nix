@@ -1,10 +1,8 @@
 {
   pkgs,
-  lib,
   ...
 }:
 {
-
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
@@ -29,30 +27,31 @@
 
     oh-my-zsh = {
       enable = true;
+      theme = "gnzh";
     };
 
     plugins = [
       {
-        name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+        name = "zsh-autosuggestions";
+        src = pkgs.fetchFromGitHub {
+          owner = "zsh-users";
+          repo = "zsh-autosuggestions";
+          rev = "v0.4.0";
+          sha256 = "0z6i9wjjklb4lvr7zjhbphibsyx51psv50gm07mbb0kj9058j6kc";
+        };
       }
-      # {
-      #   name = "powerlevel10k-config";
-      #   src = lib.cleanSource ./p10k-config;
-      #   file = "p10k.zsh";
-      # }
+      {
+        # TODO: does not seem to work
+        name = "enhancd";
+        file = "init.sh";
+        src = pkgs.fetchFromGitHub {
+          owner = "b4b4r07";
+          repo = "enhancd";
+          rev = "v2.2.1";
+          sha256 = "0iqa9j09fwm6nj5rpip87x3hnvbbz9w9ajgm6wkrd5fls8fn8i5g";
+        };
+      }
     ];
-
-    initContent = ''
-      bindkey "\eh" backward-word
-      bindkey "\ej" down-line-or-history
-      bindkey "\ek" up-line-or-history
-      bindkey "\el" forward-word
-      if [ -f $HOME/.zshrc-personal ]; then
-        source $HOME/.zshrc-personal
-      fi
-    '';
 
     shellAliases = {
       sv = "sudo nvim";
@@ -60,6 +59,9 @@
       c = "clear";
       cat = "bat";
       man = "batman";
+      garbage = "sudo nix-collect-garbage --delete-older-than 15d";
+      rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#laptop";
+      update = "sudo nix flake update";
     };
   };
 }
