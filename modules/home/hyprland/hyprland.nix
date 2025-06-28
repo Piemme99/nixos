@@ -6,6 +6,7 @@
     swww # Background manager
     hyprpaper # Wallpaper manager
     brightnessctl # Brightness control
+    nerd-fonts.jetbrains-mono # JetBrains Mono font
   ];
 
   wayland.windowManager.hyprland = {

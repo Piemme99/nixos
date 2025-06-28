@@ -3,15 +3,19 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./modules/bash.nix
-    ./modules/packages.nix
+    ./modules/default.nix
   ];
+
+  services.xserver.enable = true;
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sddm.wayland.enable = true;
+  services.xserver.displayManager.sddm.theme = "where_is_my_sddm_theme";
 
   # SSH
   services.openssh = {
     enable = true;
     settings = {
-      PasswordAuthentication = false;
+      PasswordAuthentication = true; # TODO: set to false for security
       KbdInteractiveAuthentication = false; # Connect only with SSH keys
     };
   };
