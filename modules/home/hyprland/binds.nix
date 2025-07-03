@@ -29,16 +29,16 @@
       "SUPER, agrave, workspace, 10"
 
       # --- Move window to workspace ---
-      "SUPER SHIFT, 1, movetoworkspace, 1"
-      "SUPER SHIFT, 2, movetoworkspace, 2"
-      "SUPER SHIFT, 3, movetoworkspace, 3"
-      "SUPER SHIFT, 4, movetoworkspace, 4"
-      "SUPER SHIFT, 5, movetoworkspace, 5"
-      "SUPER SHIFT, 6, movetoworkspace, 6"
-      "SUPER SHIFT, 7, movetoworkspace, 7"
-      "SUPER SHIFT, 8, movetoworkspace, 8"
-      "SUPER SHIFT, 9, movetoworkspace, 9"
-      "SUPER SHIFT, 0, movetoworkspace, 10"
+      "SUPER SHIFT, ampersand, movetoworkspace,"
+      "SUPER SHIFT, eacute, movetoworkspace, 2"
+      "SUPER SHIFT, quotedbl, movetoworkspace, 3"
+      "SUPER SHIFT, apostrophe, movetoworkspace, 4"
+      "SUPER SHIFT, parenleft, movetoworkspace, 5"
+      "SUPER SHIFT, egrave, movetoworkspace, 6"
+      "SUPER SHIFT, minus, movetoworkspace, 7"
+      "SUPER SHIFT, underscore, movetoworkspace, 8"
+      "SUPER SHIFT, ccedilla, movetoworkspace, 9"
+      "SUPER SHIFT, agrave, movetoworkspace, 10"
 
       # --- Move/resize mode ---
       "SUPER, R, submap, resize"

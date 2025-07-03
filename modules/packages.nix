@@ -18,7 +18,7 @@
     nixd # LSP for nix
     nix-ld # Allows excecution of binary (for remote vscode)
     nerd-fonts.jetbrains-mono # JetBrains Mono font
-    where-is-my-sddm-theme
+    where-is-my-sddm-theme #TODO: is this usefull ?
 
   ];
   programs.nix-ld.enable = true; # https://blog.thalheim.io/2022/12/31/nix-ld-a-clean-solution-for-issues-with-pre-compiled-executables-on-nixos/

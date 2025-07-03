@@ -98,6 +98,7 @@
   services.displayManager.autoLogin.user = "piemme";
 
   programs.hyprland.enable = true;
+  services.libinput.touchpad.naturalScrolling = true;
 
   system.stateVersion = "25.05";
 
