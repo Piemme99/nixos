@@ -7,6 +7,7 @@
     hyprpaper # Wallpaper manager
     brightnessctl # Brightness control
     nerd-fonts.jetbrains-mono # JetBrains Mono font
+    pamixer #TODO check what this does (used to change volume)
   ];
 
   wayland.windowManager.hyprland = {

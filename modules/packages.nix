@@ -18,6 +18,7 @@
     nixd # LSP for nix
     nix-ld # Allows excecution of binary (for remote vscode)
     nerd-fonts.jetbrains-mono # JetBrains Mono font
+    xournalpp # Whiteboard
     where-is-my-sddm-theme #TODO: is this usefull ?
 
   ];
