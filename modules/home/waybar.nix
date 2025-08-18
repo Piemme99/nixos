@@ -29,12 +29,10 @@ in
         layer = "top";
         position = "top";
         modules-center = [
-          "network"
           "pulseaudio"
           "cpu"
           "hyprland/workspaces"
           "memory"
-          "disk"
           "clock"
         ];
         modules-left = [
@@ -54,12 +52,9 @@ in
             active = " ";
             urgent = " ";
           };
-          on-scroll-up = "hyprctl dispatch workspace e+1";
-          on-scroll-down = "hyprctl dispatch workspace e-1";
         };
         "clock" = {
-          format = '' {:%H:%M}'';
-          # ''{: %I:%M %p}'';
+          format = ''{:%H:%M}'';
           tooltip = true;
           tooltip-format = "<big>{:%A, %d.%B %Y }</big><tt><small>{calendar}</small></tt>";
         };
@@ -75,36 +70,11 @@ in
           tooltip = true;
           on-click = "kitty -e btop";
         };
-        "disk" = {
-          format = " {free}";
-          tooltip = true;
-          # Not working with zaneyos window open then closes
-          #on-click = "kitty -e sh -c df -h ; read";
-        };
-        "network" = {
-          format-icons = [
-            "󰤯"
-            "󰤟"
-            "󰤢"
-            "󰤥"
-            "󰤨"
-          ];
-          format-ethernet = " {bandwidthDownBits}";
-          format-wifi = " {bandwidthDownBits}";
-          format-disconnected = "󰤮";
-          tooltip = false;
-          on-click = "kitty -e btop";
-        };
-        "tray" = {
-          spacing = 12;
-        };
         "pulseaudio" = {
-          format = "{icon} {volume}% {format_source}";
+          format = "{icon} {volume}%";
           format-bluetooth = "{volume}% {icon} {format_source}";
           format-bluetooth-muted = " {icon} {format_source}";
           format-muted = " {format_source}";
-          format-source = " {volume}%";
-          format-source-muted = "";
           format-icons = {
             headphone = "";
             hands-free = "";
@@ -182,30 +152,12 @@ in
         font-weight: bold;
         }
         window#waybar {
-          /*
-
-            background-color: rgba(26,27,38,0);
-            border-bottom: 1px solid rgba(26,27,38,0);
-            border-radius: 0px;
-            color: #${base0F};
-          */
-
           background-color: rgba(26,27,38,0);
           border-bottom: 1px solid rgba(26,27,38,0);
           border-radius: 0px;
           color: #${base0F};
         }
         #workspaces {
-          /*
-            Eternal
-            background: linear-gradient(180deg, #${base00}, #${base01});
-            margin: 5px 5px 5px 0px;
-            padding: 0px 10px;
-            border-radius: 0px 15px 50px 0px;
-            border: 0px;
-            font-style: normal;
-            color: #${base00};
-          */
           background: linear-gradient(45deg, #${base01}, #${base01});
           margin: 5px;
           padding: 0px 1px;
@@ -265,21 +217,14 @@ in
           border-radius: 50px 15px 50px 15px;
         }
         #memory {
-          color: #${base0F};
-          /*
-            Eternal
-            background: #${base00};
-            border-radius: 50px 15px 50px 15px;
-            margin: 5px;
-            padding: 2px 20px;
-          */
-          background: #${base01};
+          color: #${base07};
+          background: #${base00};
           margin: 5px;
           padding: 2px 20px;
           border-radius: 15px 50px 15px 50px;
         }
         #clock {
-          color: #${base0B};
+          color: #${base07};
             background: #${base00};
             border-radius: 15px 50px 15px 50px;
             margin: 5px;
@@ -293,43 +238,22 @@ in
             padding: 2px 20px;
         }
         #disk {
-          color: #${base0F};
+          color: #${base07};
             background: #${base00};
             border-radius: 15px 50px 15px 50px;
             margin: 5px;
             padding: 2px 20px;
         }
         #battery {
-          color: #${base08};
-          background: #${base00};
-          border-radius: 15px 50px 15px 50px;
-          margin: 5px;
-          padding: 2px 20px;
-        }
-        #network {
-          color: #${base09};
-          background: #${base00};
-          border-radius: 50px 15px 50px 15px;
-          margin: 5px;
-          padding: 2px 20px;
-        }
-        #tray {
-          color: #${base05};
+          color: #${base07};
           background: #${base00};
           border-radius: 15px 50px 15px 50px;
           margin: 5px;
           padding: 2px 20px;
         }
         #pulseaudio {
-          color: #${base0D};
-          /*
-            Eternal
-            background: #${base00};
-            border-radius: 15px 50px 15px 50px;
-            margin: 5px;
-            padding: 2px 20px;
-          */
-          background: #${base01};
+          color: #${base07};
+          background: #${base00};
           margin: 4px;
           padding: 2px 20px;
           border-radius: 50px 15px 50px 15px;
@@ -342,14 +266,14 @@ in
           padding: 2px 20px;
         }
         #custom-startmenu {
-          color: #${base0E};
+          color: #${base07};
           background: #${base00};
           border-radius: 0px 15px 50px 0px;
           margin: 5px 5px 5px 0px;
           padding: 2px 20px;
         }
         #custom-exit {
-          color: #${base0E};
+          color: #${base07};
           background: #${base00};
           border-radius: 15px 0px 0px 50px;
           margin: 5px 0px 5px 5px;
