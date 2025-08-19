@@ -7,6 +7,5 @@
     ./btop.nix
     ./zsh.nix
     ./bat.nix
-    #./lazyvim.nix
   ];
 }

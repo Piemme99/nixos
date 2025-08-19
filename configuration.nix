@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
@@ -77,13 +77,16 @@
     shell = pkgs.zsh;
     ignoreShellProgramCheck = true;
   };
-
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
     backupFileExtension = "backup";
     users.piemme = {
-      imports = [ ./modules/home ];
+      imports = [
+        ./modules/home
+        ./modules/home/lazyvim.nix
+        inputs.lazyvim.homeManagerModules.default
+      ];
       home = {
         username = "piemme";
         homeDirectory = "/home/piemme";
